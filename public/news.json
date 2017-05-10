@@ -1,0 +1,16 @@
+[
+    {
+        "id": 0,
+        "preId": "news",
+        "date": "12.12.2004",
+        "header": "Name News",
+        "content": "Lorem ipsum dolor sit amet, secte uer ad scing elit, sedam nonumy nibh euismod tdunt ut laoreet dolmagna quam erat volu pat. Ut wisi ad minim veniam, quis nostru xerc tation ullamcorper susc lobortis nis ut aliquip ex ea consequat. Duis autem vel eu iriure dolor in hendrerit in vul velit esse molesti consequa vel illum dolore eu feugiat nul facilisis at vero eros et acc facilisi. Duis autem vel eu iriure dolor in hendrerit in vul velit esse molesti conseq ua vel illum dolore iriure dolor in hendre..."
+    },
+    {
+        "id": 1,
+        "preId": "news",
+        "date": "15.12.2004",
+        "header": "News Name",
+        "content": "Lorem ipsum dolor sit amet, secte uer adscing elit, sedam nonumy nibh euismod tdunt ut laoreet dolmagna quam erat volupat. Ut wisi ad minim veniam, quis nostru xerc tation ullamcorper susc lobortis  nisut aliquip ex ea consequat. Duis autem vel eu iriure dolor in hendrerit in vul velit esse molesti consequa vel illum dolore eu feugiat nul facilisis at vero eros et accfacilisi.  Duis autem vel eu iriure dolor in hendrerit in vul velit esse molesti consequa vel illum dolore iriure dolor in hendre..."
+    }
+]

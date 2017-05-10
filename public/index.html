@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <title>Oleg Kurbatov Luxoft</title>
+</head>
+<body>
+
+    <script>
+    function loadNews() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'news.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState != 4) return;
+
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                try {
+                    var news = JSON.parse(xhr.responseText);
+                } catch (e) {
+                    alert(e.message);
+                }
+                showNews(news);
+            }
+
+        }
+
+        xhr.send();
+    }
+
+    function showNews(news) {
+
+        news.forEach(function(news) {
+            var div = document.createElement('div');
+            div.innerHTML = '<div class="block-news__news"><span><h1 class="block-news__header">'+news.header+'</h1><p class="block-news__date">'+news.date+'</p></span><p id="'+news.preId+news.id+'">'+news.content+'</p><a class="block-news__more" id="'+news.id+'" href="#">more ></a></div>'
+
+            divNews.insertBefore(div, divNews.children[1]);
+        });
+
+    }
+
+    loadNews();
+    </script>
+
+    <div class="header">
+        <div class="logo">
+            <img src="images/mainpage/logo.png" alt="">
+            <div class="logo__company">
+                <h1>Company <span class="orange-text">Name</span></h1>
+                <h2>Corpporate slogan here</h2>
+            </div>
+        </div>
+
+
+        <div class="header__navigation-mobile">
+            <a href="#">
+                <div class="header__navigation-mobile-button header__navigation-mobile-button_active">
+                    <div class="header__navigation-mobile-button-design"></div>
+                    <p class="header__navigation-button-text">Home</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="header__navigation-mobile-button">
+                    <div class="header__navigation-mobile-button-design"></div>
+                    <p class="header__navigation-button-text">About Us</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="header__navigation-mobile-button">
+                    <div class="header__navigation-mobile-button-design"></div>
+                    <p class="header__navigation-button-text">Events</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="header__navigation">
+            <a class="header__navigation-button_mobile-hide" href="#">
+                <div class="header__navigation-button header__navigation-button_active">
+                    <div class="header__navigation-button-design"></div>
+                    <p class="header__navigation-button-text">Home</p>
+                </div>
+            </a>
+            <a class="header__navigation-button_mobile-hide" href="#">
+                <div class="header__navigation-button">
+                    <div class="header__navigation-button-design"></div>
+                    <p class="header__navigation-button-text">About Us</p>
+                </div>
+            </a>
+            <a class="header__navigation-button_mobile-hide" href="#">
+                <div class="header__navigation-button">
+                    <div class="header__navigation-button-design"></div>
+                    <p class="header__navigation-button-text">Events</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="header__navigation-button">
+                    <div class="header__navigation-button-design"></div>
+                    <p class="header__navigation-button-text">Product Catalog</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="header__navigation-button">
+                    <div class="header__navigation-button-design"></div>
+                    <p class="header__navigation-button-text">Contact Us</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="header__navigation-button">
+                    <div class="header__navigation-button-design"></div>
+                    <p class="header__navigation-button-text">Links</p>
+                </div>
+            </a>
+        </div>
+        <div class="header__buttons-background"></div>
+        <div class="header__slider-background"></div>
+        <div onmouseover="sliderMouseOver()" onmouseout="sliderMouseOut()" class="header__slider">
+            <div class="header__navigation-2">
+                <div class="header__navigation-2-buttons">
+                    <a href="#">
+                        <div class="header__navigation-2-button header__navigation-2-button-left">
+                            <p>Our Policies</p>
+                        </div>
+                    <a href="#">
+                        <div class="header__navigation-2-button">
+                            <p><a href="#">Shopping Cart</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <ul style="margin-left: 5px" class="header__slider-ul">
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide1.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide2.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide3.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide4.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide1.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide2.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide3.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide4.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide1.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide2.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide3.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide4.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide1.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide2.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide3.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide4.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide1.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide2.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide3.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide4.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide1.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide2.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide3.png" alt=""></li>
+                <li class="header__slider-slide"><img src="images/mainpage/slider/slide4.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="header__slider-background"></div>
+    </div>
+
+    <div class="content">
+        <div id="divNews" class="block block-news">
+            <h1 class="block__header">News</h1>
+        </div>
+
+        <div class="block block-second">
+            <h1 class="block__header">Lorem Ipsum</h1>
+            <div class="block-second__content">
+                <p>
+                    Lorem ipsum dolor sit amet, secte
+                    uer adipiscing elit, sedam nonumy
+                    nibh euismod tidunt ut laoreet dol
+                    magna quam erat volutpat. Ut wisia
+                    minim veniam qui nostru xerctation
+                    ullamcorp susc lobortis nisl ut aliqui
+                    ex ea consequat. Duis autem vel
+                    eu iriure dolor in hendrerit in vul veli
+                    esse molesti consequa vel illum dol
+                    ore eu feugi at nul facilisis at vero
+                    eros et acc faci.sedam nonumy nibh
+                    euismod dunt ut laoreet dolmagna
+                    qua erat volutpat.
+                </p>
+                <ul>
+                    <li><a href="#">Delenit ea Velit  Vero Dolore</a>
+                    <li><a href="#">Lobortis Quis Suscipit Enim</a>
+                    <li><a href="#">Tincidunt Aliquip Lobortis Feug</a>
+                    <li><a href="#">Delenit ea Velit  Vero Dolore</a>
+                    <li><a href="#">Lobortis Quis Suscipit Enim</a>
+                    <li><a href="#">Delenit Quis Vero Dolore</a>
+                    <li><a href="#">Delenit ea Velit  Vero Dolore</a>
+                    <li><a href="#">Lobortis Quis Suscipit Enim</a>
+                    <li><a href="#">Tincidunt Aliquip Lobortis Feuit</a>
+                    <li><a href="#">Delenit Quis Vero Dolore</a>
+                    <li><a href="#">Lobortis Quis Suscipit Enim</a>
+                    <li><a href="#">Lobortis Quis Suscipit Enim</a>
+                    <li><a href="#">Tincidunt Aliquip Lobortis Feug</a>
+                    <li><a href="#">Delenit Quis Vero Dolore</a>
+                    <li><a href="#">Lobortis Quis Suscipit Enim</a>
+                </ul>
+            </div>
+        </div>
+        <div class="block block-third">
+            <h1 class="block__header block-third__header">Lorem ipsum</h1>
+            <h2 class="block-third__header-mini">dolor sit amet</h2>
+            <div class="block-third__content">
+                <p>
+                    Lorem ipsum dolor sit amet, secte uer adipiscin
+                    elit, sedam nonumy nibh euismod tidunt ut laor
+                    olma gna quam erat volutpat. Ut wisiad minim
+                    niam, qui nostru xerctation ullamcorper susc lo
+                    tis nisl ut aliquip ex ea consequat. Duis autem
+                    eu iriure dolor in hendrerit in vul velit esse mo
+                    consequa vel illum dolore eu feugi at nul facilis
+                    at vero eros et acc faci. sedam nonumy nibh
+                    mod tidunt ut laoreet dolmagna quam erat vol
+                    at. Ut wisiad minim veniam, qui nostru xerctat
+                    ullamcorper susc lobortis nisl ut aliq
+                </p>
+                <p><img class="block-third__image" src="images/mainpage/photo.png" alt=""></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer__navigation bold">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Events</a>
+            <a href="#">Product Catalog</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Helpful Links</a>
+            <a href="#">Our Policies</a>
+            <a href="#">Shopping Cart</a>
+        </div>
+        <div class="footer__background">
+        </div>
+        <div class="footer__copyright">
+            <p>Copyright by <span class="bold">Company Name</span> © 2004 All rights Reserved</p>
+        </div>
+    </div>
+    <script src="js/script.js" charset="utf-8"></script>
+</body>
+</html>
