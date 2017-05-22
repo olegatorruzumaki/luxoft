@@ -7,45 +7,7 @@
     <title>Oleg Kurbatov Luxoft</title>
 </head>
 <body>
-
-    <script>
-    function loadNews() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'news.json', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState != 4) return;
-
-            if (xhr.status != 200) {
-                alert(xhr.status + ': ' + xhr.statusText);
-            } else {
-                try {
-                    var news = JSON.parse(xhr.responseText);
-                } catch (e) {
-                    alert(e.message);
-                }
-                showNews(news);
-            }
-
-        }
-
-        xhr.send();
-    }
-
-    function showNews(news) {
-
-        news.forEach(function(news) {
-            var div = document.createElement('div');
-            div.innerHTML = '<div class="block-news__news"><span><h1 class="block-news__header">'+news.header+'</h1><p class="block-news__date">'+news.date+'</p></span><p id="'+news.preId+news.id+'">'+news.content+'</p><a class="block-news__more" id="'+news.id+'" href="#">more ></a></div>'
-
-            divNews.insertBefore(div, divNews.children[1]);
-        });
-
-    }
-
-    loadNews();
-    </script>
-
-    <div class="header">
+    <header class="header">
         <div class="logo">
             <img src="images/mainpage/logo.png" alt="">
             <div class="logo__company">
@@ -76,7 +38,7 @@
             </a>
         </div>
 
-        <div class="header__navigation">
+        <nav class="header__navigation">
             <a class="header__navigation-button_mobile-hide" href="#">
                 <div class="header__navigation-button header__navigation-button_active">
                     <div class="header__navigation-button-design"></div>
@@ -113,7 +75,8 @@
                     <p class="header__navigation-button-text">Links</p>
                 </div>
             </a>
-        </div>
+        </nav>
+
         <div class="header__buttons-background"></div>
         <div class="header__slider-background"></div>
         <div onmouseover="sliderMouseOver()" onmouseout="sliderMouseOut()" class="header__slider">
@@ -123,9 +86,10 @@
                         <div class="header__navigation-2-button header__navigation-2-button-left">
                             <p>Our Policies</p>
                         </div>
+                    </a>
                     <a href="#">
                         <div class="header__navigation-2-button">
-                            <p><a href="#">Shopping Cart</p>
+                            <p><a href="#">Shopping Cart</a></p>
                         </div>
                     </a>
                 </div>
@@ -158,14 +122,14 @@
             </ul>
         </div>
         <div class="header__slider-background"></div>
-    </div>
+    </header>
 
     <div class="content">
-        <div id="divNews" class="block block-news">
+        <section id="divNews" class="block block-news">
             <h1 class="block__header">News</h1>
-        </div>
+        </section>
 
-        <div class="block block-second">
+        <article class="block block-second">
             <h1 class="block__header">Lorem Ipsum</h1>
             <div class="block-second__content">
                 <p>
@@ -201,8 +165,8 @@
                     <li><a href="#">Lobortis Quis Suscipit Enim</a>
                 </ul>
             </div>
-        </div>
-        <div class="block block-third">
+        </article>
+        <aside class="block block-third">
             <h1 class="block__header block-third__header">Lorem ipsum</h1>
             <h2 class="block-third__header-mini">dolor sit amet</h2>
             <div class="block-third__content">
@@ -221,11 +185,11 @@
                 </p>
                 <p><img class="block-third__image" src="images/mainpage/photo.png" alt=""></p>
             </div>
-        </div>
+        </aside>
     </div>
 
-    <div class="footer">
-        <div class="footer__navigation bold">
+    <footer>
+        <nav class="footer__navigation bold">
             <a href="#">Home</a>
             <a href="#">About Us</a>
             <a href="#">Events</a>
@@ -234,13 +198,50 @@
             <a href="#">Helpful Links</a>
             <a href="#">Our Policies</a>
             <a href="#">Shopping Cart</a>
-        </div>
+        </nav>
         <div class="footer__background">
         </div>
         <div class="footer__copyright">
             <p>Copyright by <span class="bold">Company Name</span> © 2004 All rights Reserved</p>
         </div>
-    </div>
+    </footer>
+    <script>
+    function loadNews() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'news.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4) return;
+
+            if (xhr.status !== 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                try {
+                    var news = JSON.parse(xhr.responseText);
+                } catch (e) {
+                    alert(e.message);
+                }
+                showNews(news);
+            }
+
+        };
+
+        xhr.send();
+    }
+
+    function showNews(news) {
+
+        news.forEach(function(news) {
+            var article = document.createElement('article');
+            article.className = "block-news__news";
+            article.innerHTML = '<span><h2 class="block-news__header">'+news.header+'</h2><time class="block-news__date">'+news.date+'</time></span><p id="'+news.preId+news.id+'">'+news.content+'</p><a class="block-news__more" id="'+news.id+'" href="#">more ></a>'
+
+            divNews.insertBefore(article, divNews.children[1]);
+        });
+
+    }
+
+    loadNews();
+    </script>
     <script src="js/script.js" charset="utf-8"></script>
 </body>
 </html>
