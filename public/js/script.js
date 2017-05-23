@@ -6,7 +6,6 @@ function sliderFunc() {
     sliderInterval = setInterval(function () {
         sliderStartPoint--;
         sliderElement.style.transform= "translateX("+sliderStartPoint + "px)";
-        // sliderElement.style.marginLeft = sliderStartPoint + "px";
         if (sliderStartPoint < -666) {
             sliderStartPoint = 0;
         }
