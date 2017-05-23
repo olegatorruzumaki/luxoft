@@ -7,7 +7,7 @@ function sliderFunc() {
         sliderStartPoint--;
         sliderElement.style.transform= "translateX("+sliderStartPoint + "px)";
         // sliderElement.style.marginLeft = sliderStartPoint + "px";
-        if (sliderStartPoint < -660) {
+        if (sliderStartPoint < -666) {
             sliderStartPoint = 0;
         }
     }, 100);
