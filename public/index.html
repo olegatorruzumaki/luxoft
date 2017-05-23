@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Oleg Kurbatov Luxoft</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <meta charset="utf-8">
-    <title>Oleg Kurbatov Luxoft</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -124,7 +125,7 @@
 
     <div class="content">
         <section id="divNews" class="block block-news">
-            <h2 class="block__header">News</h2>
+            <h2  id="h2divNews" class="block__header">News</h2>
         </section>
 
         <article class="block block-second">
@@ -203,43 +204,8 @@
             <p>Copyright by <span class="bold">Company Name</span> © 2004 All rights Reserved</p>
         </div>
     </footer>
-    <script>
-    function loadNews() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'news.json', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState !== 4) return;
 
-            if (xhr.status !== 200) {
-                alert(xhr.status + ': ' + xhr.statusText);
-            } else {
-                try {
-                    var news = JSON.parse(xhr.responseText);
-                } catch (e) {
-                    alert(e.message);
-                }
-                showNews(news);
-            }
-
-        };
-
-        xhr.send();
-    }
-
-    function showNews(news) {
-
-        news.forEach(function(news) {
-            var article = document.createElement('article');
-            article.className = "block-news__news";
-            article.innerHTML = '<span><h2 class="block-news__header">'+news.header+'</h2><time class="block-news__date">'+news.date+'</time></span><p id="'+news.preId+news.id+'">'+news.content+'</p><a class="block-news__more" id="'+news.id+'" href="#">more ></a>'
-
-            divNews.insertBefore(article, divNews.children[1]);
-        });
-
-    }
-
-    loadNews();
-    </script>
+    <script src="js/newsAjax.js" charset="utf-8"></script>
     <script src="js/script.js" charset="utf-8"></script>
 </body>
 </html>

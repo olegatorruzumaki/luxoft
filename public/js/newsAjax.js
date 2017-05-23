@@ -52,23 +52,3 @@ function showNews(news) {
 }
 
 loadNews();
-
-var sliderElement = document.getElementById('sliderCarousel');
-var sliderStartPoint = 0;
-var sliderInterval;
-
-function sliderFunc() {
-    sliderInterval = setInterval(function () {
-        sliderStartPoint--;
-        sliderElement.style.transform= "translateX("+sliderStartPoint + "px)";
-        if (sliderStartPoint < -666) {
-            sliderStartPoint = 0;
-        }
-    }, 100);
-}
-
-function sliderMouseOver() {
-    clearInterval(sliderInterval);
-}
-
-sliderFunc();
