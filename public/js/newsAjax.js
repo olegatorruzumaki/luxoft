@@ -54,12 +54,10 @@
 // loadNews();
 
 $.getJSON( "news.json", function( news ) {
-    console.log (news);
-
     var i;
     var newsCount = news.length;
 
-    for ( i = 0; i < newsCount; i++ ) {
+    $.each ( i = 0; i < newsCount; i++ ) {
         $('#h2divNews').after('<article id="newsArticle-'+news[i].id+'" class="block-news__news">');
         $('#newsArticle-'+news[i].id).append('<span id="newsSpan-'+news[i].id+'">');
         $('#newsSpan-'+news[i].id).append('<h2 class="block-news__header">'+news[i].header+'</h2>');
