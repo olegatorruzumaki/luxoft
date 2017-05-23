@@ -4,7 +4,7 @@ var sliderInterval;
 
 function sliderFunc() {
     sliderInterval = setInterval(function () {
-        sliderStartPoint = sliderStartPoint - 1;
+        sliderStartPoint--;
         sliderElement.style.marginLeft = sliderStartPoint + "px";
         if (sliderStartPoint < -665) {
             sliderStartPoint = 5;
