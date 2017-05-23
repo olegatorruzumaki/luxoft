@@ -80,6 +80,7 @@ header {
     position: absolute;
     height: 20px;
     width: 100%;
+    z-index: 999;
     @include border-radius(15px 0 0 15px);
 
     p {
