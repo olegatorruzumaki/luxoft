@@ -1,24 +1,20 @@
-var sliderElement = document.getElementsByClassName('header__slider-ul');
-var a = 5;
+var sliderElement = document.getElementById('sliderCarousel');
+var sliderStartPoint = 0;
+var sliderInterval;
 
-var slider = setInterval(function() {
-    a = a-1;
-    sliderElement[0].style.marginLeft = a + "px";
-    if (a < -665) {
-        a = 5;
-    }
-}, 100);
-
-function sliderMouseOut() {
-    slider = setInterval(function() {
-        a = a-1;
-        sliderElement[0].style.marginLeft = a + "px";
-        if (a < -665) {
-            a = 5;
+function sliderFunc() {
+    sliderInterval = setInterval(function () {
+        sliderStartPoint--;
+        sliderElement.style.transform= "translateX("+sliderStartPoint + "px)";
+        // sliderElement.style.marginLeft = sliderStartPoint + "px";
+        if (sliderStartPoint < -660) {
+            sliderStartPoint = 0;
         }
     }, 100);
 }
 
 function sliderMouseOver() {
-    clearInterval(slider)
+    clearInterval(sliderInterval);
 }
+
+sliderFunc();
